@@ -20,14 +20,15 @@ form.addEventListener('submit', (event) => {
       position: `topRight`,
       maxWidth: `432px`,
     });
+    hideLoader();
     return;
   }
   clearGallery();
   showLoader();
 
-  getImageByQuery(searchInput).then(data =>{
-    console.log(data.hits);
-    if(!data.hits || data.hits.length === 0) {
+  getImageByQuery(searchInput).then(({hits}) =>{
+    console.log(hits);
+    if(!hits || hits.length === 0) {
       iziToast.show({
         message:
           ' Sorry, there are no images matching your search query. Please try again!',
@@ -36,10 +37,9 @@ form.addEventListener('submit', (event) => {
         position: `topRight`,
         maxWidth: `432px`,
       })
-      hideLoader();
       return;
     }
-    createGallery(data.hits);
+    createGallery(hits);
     hideLoader();
   }).catch(e => {
     hideLoader();

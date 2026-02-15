@@ -6,7 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 
-let refreshGallery = null;
+let lightBoxGallery = null;
 
 export function createGallery(images) {
   let markup = images
@@ -48,10 +48,10 @@ export function createGallery(images) {
       .join('');
 
   gallery.innerHTML = markup;
-  if (refreshGallery) {
-    refreshGallery.refresh();
+  if (lightBoxGallery) {
+    lightBoxGallery.refresh();
   } else {
-    refreshGallery = new SimpleLightbox('.gallery a', {
+    lightBoxGallery = new SimpleLightbox('.gallery a', {
       captions: true,
       captionsData: 'alt',
       captionDelay: 250,

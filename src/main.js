@@ -37,6 +37,7 @@ form.addEventListener('submit', (event) => {
         position: `topRight`,
         maxWidth: `432px`,
       })
+      hideLoader();
       return;
     }
     createGallery(hits);
@@ -44,5 +45,13 @@ form.addEventListener('submit', (event) => {
   }).catch(e => {
     hideLoader();
     console.log(e);
+    iziToast.show({
+      message:
+        'Sorry, but there was an error processing your request. Please try again.',
+      backgroundColor: `#EF4040`,
+      messageColor: `#ffffff`,
+      position: `topRight`,
+      maxWidth: `432px`,
+    });
   });
 });

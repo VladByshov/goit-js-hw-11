@@ -121,6 +121,6 @@ img {
   display: none;
   /*box-sizing: border-box;*/
   position: relative;
-  animation: pulse 1s linear infinite;
+  animation: pulse 2s linear infinite;
 }
 

@@ -2,11 +2,125 @@
 @import url('./base.css');
 @import url('./container.css');
 
+@keyframes scaleUp {
+  0% { transform: translate(-50%, -50%) scale(0) }
+  60% , 100% { transform: translate(-50%, -50%)  scale(1)}
+}
+@keyframes pulse {
+  0% , 60% , 100%{ transform:  scale(1) }
+  80% { transform:  scale(1.2)}
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  background-color: #e8fdfa;
+}
+
+main{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input{
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  background: #fff;
+  border:1px solid #ccc;
+  padding-left: 10px;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+
+  border-radius: 8px;
+  border: none;
+  padding-block: 10px;
+  padding-inline: 16px;
+  width: 91px;
+
+  background: #4e75ff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
 .gallery {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  width: 1128px;
   gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 32px;
 }
+
 .list-item {
-  width: calc((100% - 48px) / 3);
+  width: calc((100% - 54px) / 3);
+  border: 1px solid #808080;
 }
+
+img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 25px;
+  gap: 20px;
+}
+
+.list-content-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.list-content-item .name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.list-content-item .value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.loader {
+  margin: 10px auto;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #000000;
+  border-radius: 50%;
+  display: none;
+  /*box-sizing: border-box;*/
+  position: relative;
+  animation: pulse 1s linear infinite;
+}
+
